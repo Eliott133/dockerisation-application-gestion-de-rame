@@ -132,7 +132,6 @@ services:
     command: bash -c "npm ci && npm run build"
     profiles:
       - front-build
-      - prod
 
 
 volumes:
