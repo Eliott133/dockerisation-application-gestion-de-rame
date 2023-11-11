@@ -1,18 +1,85 @@
-# My Train Autohistory Application
+# Deploiement de My Train Autohistory Application
 
-This repository contains the source code and configurations for the My Train Autohistory application.
+![Logo Docker](https://logo-marque.com/wp-content/uploads/2021/03/Docker-Logo-650x366.png)
+
+
+
+Ce repository contient le code source et les configurations de l'application My Train Autohistory.
 
 ## Prerequisites
 
-Before you start, make sure you have the following installed on your machine:
+Avant de commencer, assurez-vous que les éléments suivants sont installés sur votre ordinateur :
 
 - [Docker](https://docs.docker.com/get-docker/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/) (version V2 de docker compose)
+
+## Vérifier la version de docker compose
+
+```bash
+
+   docker-compose version
+`````
 
 ## Getting Started
 
-1. Clone the repository:
+1. Cloner le  repository:
 
    ```bash
-   git clone https://github.com/votre-utilisateur/my-train-autohistory.git
-   cd my-train-autohistory
+   git clone https://github.com/Eliott133/dockerisation-application-gestion-de-rame.git
+   cd dockerisation-application-gestion-de-rame
+   `````
+2. Lancer le déploiement
+
+   ```bash
+
+      docker-compose --profile prod up -d
+   ```
+   Le déploiement met à peu de temps. Prévoyer &approx; 5 min pour que l'application soit entièrement déployer
+
+3. Acceder à l'application web
+
+Dans la barre de recherche de votre navigateur accéder à :
+
+   ```bash
+
+      localhost:8080
+   ```
+
+## Profils de Configuration
+
+L'application My Train Autohistory utilise des profils dans Docker Compose pour gérer différentes configurations en fonction de l'environnement. Les profils sont les suivants :
+
+- prod : Utilisé pour le déploiement en production.
+- dev : Utilisé pour le développement (orienté base de données)
+- front-build : pour rebuild l'application
+
+Pour changer de profil :
+
+```bash
+# pour un déploiement en production
+docker-compose --profile prod up -d
+```
+
+```bash
+# pour un profil de développemment sur les différentes bases de donnes
+docker-compose --profile dev up -d
+```
+
+```bash
+# pour rebuild l'application
+docker-compose --profile front-build up -d
+```
+
+## Configuration en tant qu'Administrateur
+
+En tant qu'administrateur, vous devez gérer certaines configurations. Voici quelques points à prendre en compte :
+
+- **Connexion aux bases de données** : vous pouvez configurer la connexion à la base de données de l'application via le fichier [configurationHost.py
+](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/configurationHost.py).Vous pouvez trouver les informations de connexion dans le [docker-compose.yml
+](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/docker-compose.yml) certaine information fonctionne avec les secret docker vous pourrez les trouvez dans le dossier secrets-data
+
+- **Gestion des profils** : Utilisez les profils dans Docker Compose pour activer/désactiver des fonctionnalités spécifiques en fonction de l'environnement.
+
+- **Logs** : Surveillez les logs pour détecter d'éventuels problèmes et suivre l'état de l'application.
+
+
