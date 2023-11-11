@@ -17,7 +17,7 @@ Avant de commencer, assurez-vous que les éléments suivants sont installés sur
 
 ```bash
 
-   docker-compose version
+docker-compose version
 `````
 
 ## Getting Started
