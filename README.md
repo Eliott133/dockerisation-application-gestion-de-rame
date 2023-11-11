@@ -37,7 +37,6 @@ docker-compose version
 
    docker-compose --profile prod up -d
    ```
-   Le déploiement met à peu de temps. Prévoyer &approx; 5 min pour que l'application soit entièrement déployer
 
 3. Acceder à l'application web
 
@@ -48,13 +47,19 @@ Dans la barre de recherche de votre navigateur accéder à :
       localhost:8080
    ```
 
+4. Stopper le déploiement 
+
+```bash
+docker-compose --profile prod down
+```
+
 ## Profils de Configuration
 
 L'application My Train Autohistory utilise des profils dans Docker Compose pour gérer différentes configurations en fonction de l'environnement. Les profils sont les suivants :
 
 - prod : Utilisé pour le déploiement en production.
 - dev : Utilisé pour le développement (orienté base de données)
-- front-build : pour rebuild l'application
+- front-build : pour rebuild l'application (prévoyer &approx; 5 min pour que l'application soit entièrement build)
 
 Pour changer de profil :
 
