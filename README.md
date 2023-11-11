@@ -96,4 +96,7 @@ En tant qu'administrateur, vous devez gérer certaines configurations. Voici que
    - Port 8809 : Interface Web de Mongo Express (utilisé dans le profil "dev")
 Si ces ports sont déjà utilisés par d'autres applications sur votre machine, vous devrez ajuster les ports dans le fichier docker-compose.yml pour éviter les conflits.
 
+Vous pouvez trouver plus d'information à propos de l'architecture dans le pdf [diagramme_deploiement
+](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/diagramme_deploiement_GPTD32_1.pdf) 
+
 
