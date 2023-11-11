@@ -1,0 +1,153 @@
+version: '3.8'
+
+networks:
+  mytrain-db-net:
+  front-net:
+
+services:
+  sql-db:
+    image: mariadb:11
+    container_name: sql-db
+    environment:
+      MARIADB_ROOT_PASSWORD: krWmP2PL
+      MARIADB_USER: user
+      MARIADB_PASSWORD: krWmP2PL
+      MARIADB_DATABASE: prod-db
+    volumes:
+      - sql-db-data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/healthcheck.sh", "--connect"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
+    networks:
+      - mytrain-db-net
+    profiles:
+      - prod
+      - dev
+    secrets:
+      - db_sql_root_password
+      - db_sql_password
+
+  devpma-sql:
+    image: phpmyadmin
+    container_name: devpma-sql
+    environment:
+      PMA_HOSTS: sql-db
+      PMA_PORT: 3306
+      PMA_USER: user
+      PMA_PASSWORD: krWmP2PL
+    restart: always
+    ports:
+      - 8888:80 
+    networks:
+      - mytrain-db-net
+    profiles:
+      - dev
+  
+  nosql-db:
+    image: mongo
+    restart: always
+    container_name: nosql-db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: db-prod
+    volumes:
+      - nosql-db-data:/data/db
+    networks:
+      - mytrain-db-net
+    profiles:
+      - prod
+      - dev
+  
+  devpma-nosql:
+    image: mongo-express
+    restart: always
+    container_name: devpma-nosql
+    ports:
+      - 8809:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: password
+      ME_CONFIG_MONGODB_SERVER: nosql-db
+    networks:
+      - mytrain-db-net
+    profiles:
+      - dev
+
+  http:
+    image: nginx
+    container_name: http
+    domainname: mytrain-autohistory
+    ports:
+      - 8080:80
+    networks:
+      - front-net
+    depends_on:
+      - api
+    configs:
+      - source: http_config
+        target: /etc/nginx/nginx.conf
+        mode: 0440
+    volumes:
+      - app-static:/var/www/app:ro
+    restart: always
+    profiles:
+      - prod
+
+  api:
+    build:
+      context: ./my-train-auto-history/api
+    container_name: app
+    depends_on:
+      - sql-db
+      - nosql-db
+    networks:
+      - mytrain-db-net
+      - front-net
+    volumes:
+      - ./configurationHost.py:/api/config.py
+    restart: always
+    configs:
+      - source: api_config
+        target: /api/config.py
+    profiles:
+      - prod
+
+
+  web-app:
+    image: node:20
+    container_name: web-app
+    working_dir: "/usr/local/app"
+    environment:
+      - API_EP_URI=/api/v1
+    volumes: 
+      - ./my-train-auto-history/app:/usr/local/app
+      - app-static:/usr/local/app/build
+    command: bash -c "npm ci && npm run build"
+    profiles:
+      - front-build
+      - prod
+
+
+volumes:
+  sql-db-data:
+  nosql-db-data:
+  app-static:
+
+configs:
+  http_config:
+    file: ./nginx.conf
+  api_config:
+    file: ./my-train-auto-history/api/config.py
+
+secrets:
+   db_sql_password:
+     file: secrets_data/db_sql_password.txt
+   db_sql_root_password:
+     file: secrets_data/db_sql_root_password.txt
