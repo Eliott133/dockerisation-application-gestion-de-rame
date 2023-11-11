@@ -26,13 +26,16 @@ Avant de commencer, assurez-vous que les éléments suivants sont installés sur
 
    ```bash
    git clone https://github.com/Eliott133/dockerisation-application-gestion-de-rame.git
+   ```
+
+   ```bash
    cd dockerisation-application-gestion-de-rame
-   `````
+   ```
 2. Lancer le déploiement
 
    ```bash
 
-      docker-compose --profile prod up -d
+   docker-compose --profile prod up -d
    ```
    Le déploiement met à peu de temps. Prévoyer &approx; 5 min pour que l'application soit entièrement déployer
 
