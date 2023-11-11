@@ -90,4 +90,10 @@ En tant qu'administrateur, vous devez gérer certaines configurations. Voici que
 
 - **Logs** : Surveillez les logs pour détecter d'éventuels problèmes et suivre l'état de l'application.
 
+- **Gestion des ports** : L'application utilise plusieurs ports pour différents services. Assurez-vous qu'aucun de ces ports n'est déjà utilisé sur votre machine pour éviter toute confusion :
+   - Port 8080 : Interface Web de l'application
+   - Port 8888 : Interface Web de phpMyAdmin (utilisé dans le profil "dev")
+   - Port 8809 : Interface Web de Mongo Express (utilisé dans le profil "dev")
+Si ces ports sont déjà utilisés par d'autres applications sur votre machine, vous devrez ajuster les ports dans le fichier docker-compose.yml pour éviter les conflits.
+
 
