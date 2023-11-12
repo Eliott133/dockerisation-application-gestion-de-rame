@@ -32,7 +32,7 @@ services:
       - db_sql_password
 
   devpma-sql:
-    image: phpmyadmin:5
+    image: phpmyadmin
     container_name: devpma-sql
     environment:
       PMA_HOSTS: sql-db
@@ -48,7 +48,7 @@ services:
       - dev
   
   nosql-db:
-    image: mongo:5.0.22
+    image: mongo
     restart: always
     container_name: nosql-db
     environment:
@@ -64,7 +64,7 @@ services:
       - dev
   
   devpma-nosql:
-    image: mongo-express:1.0.0-20
+    image: mongo-express
     restart: always
     container_name: devpma-nosql
     ports:
@@ -81,7 +81,7 @@ services:
       - dev
 
   http:
-    image: nginx:stable
+    image: nginx
     container_name: http
     domainname: mytrain-autohistory
     ports:
