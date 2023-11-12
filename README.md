@@ -101,4 +101,17 @@ Si ces ports sont déjà utilisés par d'autres applications sur votre machine, 
 Vous pouvez trouver plus d'information à propos de l'architecture dans le pdf [diagramme_deploiement
 ](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/diagramme_deploiement_GPTD32_1.pdf) 
 
+## Information sur les images utilisé
+
+| Image| Version |
+| ---------|----------|----------|
+| mariadb | 11 |
+| phpmyadmin | 5 |
+| mongo | lastest |
+| mongo-express | lastest |
+| nginx | 1.25 |
+| node | 20 |
+| dockerisation-application-gestion-de-rame-api | FROM python3.11 |
+
+
 
