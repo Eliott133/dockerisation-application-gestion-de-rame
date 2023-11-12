@@ -83,8 +83,8 @@ docker-compose --profile front-build up -d
 En tant qu'administrateur, vous devez gérer certaines configurations. Voici quelques points à prendre en compte :
 
 - **Connexion aux bases de données** : vous pouvez configurer la connexion à la base de données de l'application via le fichier [configurationHost.py
-](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/configurationHost.py).Vous pouvez trouver les informations de connexion dans le [docker-compose.yml
-](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/docker-compose.yml) certaine information fonctionne avec les secret docker vous pourrez les trouvez dans le dossier secrets-data
+](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/configurationHost.py). Vous pouvez trouver les informations de connexion dans le [docker-compose.yml
+](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/docker-compose.yml), certaines informations fonctionnent avec les secrets docker vous pourrez les trouver dans le dossier secrets-data
 
 - **Gestion des profils** : Utilisez les profils dans Docker Compose pour activer/désactiver des fonctionnalités spécifiques en fonction de l'environnement.
 
