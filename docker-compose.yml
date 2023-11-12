@@ -31,7 +31,7 @@ services:
       - db_sql_password
 
   devpma-sql:
-    image: phpmyadmin
+    image: phpmyadmin:5
     container_name: devpma-sql
     environment:
       PMA_HOSTS: sql-db
