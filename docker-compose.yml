@@ -41,7 +41,7 @@ services:
       PMA_PASSWORD: krWmP2PL
     restart: always
     ports:
-      - 8888:80 
+      - 127.0.0.1:8888:80 
     networks:
       - mytrain-db-net
     profiles:
@@ -68,7 +68,7 @@ services:
     restart: always
     container_name: devpma-nosql
     ports:
-      - 8809:8081
+      - 127.0.0.1:8809:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
