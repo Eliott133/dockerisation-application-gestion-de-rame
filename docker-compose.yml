@@ -26,7 +26,6 @@ services:
       - mytrain-db-net
     profiles:
       - prod
-      - dev
     secrets:
       - db_sql_root_password
       - db_sql_password
@@ -61,7 +60,6 @@ services:
       - mytrain-db-net
     profiles:
       - prod
-      - dev
   
   devpma-nosql:
     image: mongo-express
