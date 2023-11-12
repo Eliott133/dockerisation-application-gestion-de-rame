@@ -68,7 +68,7 @@ Pour changer de profil :
 docker-compose --profile prod up -d
 ```
 
-> :warning: **le profile prod doit être lancé avant**
+> :warning: pour ce profile : **le profile prod doit être lancé avant**
 
 ```bash
 # pour un profil de développemment sur les différentes bases de donnes
