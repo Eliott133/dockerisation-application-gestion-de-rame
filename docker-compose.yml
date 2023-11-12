@@ -81,7 +81,7 @@ services:
       - dev
 
   http:
-    image: nginx
+    image: nginx:1.25
     container_name: http
     domainname: mytrain-autohistory
     ports:
