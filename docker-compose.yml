@@ -26,9 +26,6 @@ services:
       - mytrain-db-net
     profiles:
       - prod
-    secrets:
-      - db_sql_root_password
-      - db_sql_password
 
   devpma-sql:
     image: phpmyadmin:5
