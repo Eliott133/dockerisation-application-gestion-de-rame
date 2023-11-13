@@ -101,8 +101,10 @@ En tant qu'administrateur, vous devez gérer certaines configurations. Voici que
    - Port 8809 : Interface Web de Mongo Express (utilisé dans le profil "dev")
 Si ces ports sont déjà utilisés par d'autres applications sur votre machine, vous devrez ajuster les ports dans le fichier docker-compose.yml pour éviter les conflits.
 
-- **Configuration du proxy** : Si vous utiliser le proxy de l'IUT du Mans vous devez décommenter quelque lignes dans le [Dockerfile
+- **Configuration du proxy** : Si vous utilisez le proxy de l'IUT du Mans vous devez décommenter quelques lignes dans le [Dockerfile
 ](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/my-train-auto-history/api/Dockerfile). Il est également nécessaire de configurer le proxy directement sur docker desktop. [Configurer le proxy](https://linuxhint.com/configure-docker-for-use-with-proxy/).
+   - Champs Proxy HTTP : http://proxy.univ-lemans.fr:3128
+   - Champs Proxy HTTPS : http://proxy.univ-lemans.fr:3128
 
 Vous pouvez trouver plus d'information à propos de l'architecture dans le pdf [diagramme_deploiement
 ](https://github.com/Eliott133/dockerisation-application-gestion-de-rame/blob/master/diagramme_deploiement_GPTD32_1.pdf) 
