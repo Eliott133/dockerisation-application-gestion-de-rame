@@ -46,8 +46,7 @@ docker-compose version
 Dans la barre de recherche de votre navigateur accéder à :
 
    ```bash
-
-      localhost:8080
+localhost:8080
    ```
 
 4. Stopper le déploiement 
