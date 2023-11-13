@@ -38,7 +38,7 @@ docker-compose version
 
    ```bash
 
-   docker-compose --profile prod up -d
+   docker-compose --profile prod --profile front-build up -d
    ```
 
 3. Acceder à l'application web
@@ -52,7 +52,7 @@ localhost:8080
 4. Stopper le déploiement 
 
 ```bash
-docker-compose --profile prod down
+docker-compose --profile prod --profile front-build down
 ```
 
 ## Profils de Configuration
