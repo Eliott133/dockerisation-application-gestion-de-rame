@@ -40,6 +40,7 @@ docker-compose version
 
    docker-compose --profile prod --profile front-build up -d
    ```
+prévoyer &approx; 5 min pour que l'application soit entièrement build
 
 3. Acceder à l'application web
 
