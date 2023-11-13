@@ -22,7 +22,7 @@ docker-compose version
 
 ## Getting Started
 
-:warning: si vous utiliser un proxy référer vous à la partie [Configuration du proxy dans la section Configuration en tant qu'Administrateur](#configuration-en-tant-quadministrateur)
+:warning: Si vous utilisez un proxy référer vous a la partie [Configuration du proxy dans la section Configuration en tant qu'Administrateur](#configuration-en-tant-quadministrateur)
 
 
 1. Cloner le  repository:
