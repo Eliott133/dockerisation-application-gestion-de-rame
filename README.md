@@ -116,8 +116,8 @@ Vous pouvez trouver plus d'information à propos de l'architecture dans le pdf [
 | --------------------------------------- | --------- |
 | mariadb                                 | 11        |
 | phpmyadmin                              | 5         |
-| mongo                                   | lastest   |
-| mongo-express                           | lastest   |
+| mongo                                   | latest   |
+| mongo-express                           | latest   |
 | nginx                                   | 1.25      |
 | node                                    | 20        |
 | dockerisation-application-gestion-de-rame-api | FROM python3.11 |
